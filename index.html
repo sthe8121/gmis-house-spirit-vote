@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GMIS House Spirit Animal Vote</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<script>
+  // Custom Tailwind configuration
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gmis: {
+            navy: '#0E2A47',
+            gold: '#E1A948',
+            lightBlue: '#D4E9F7',
+            green: '#10B981',
+            red: '#EF4444',
+            blue: '#3B82F6'
+          }
+        },
+        animation: {
+          'vote-pulse': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  .vote-highlight {
+    box-shadow: 0 0 15px rgba(233, 169, 72, 0.5);
+    transition: all 0.3s ease;
+  }
+</style>
+</head>
+<body class="bg-gmis-lightBlue text-gray-800">
+<!-- Hero Section -->
+<header class="relative bg-gmis-navy text-white py-16 text-center">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl font-bold mb-4">GMIS House Spirit Animal Vote</h1>
+    <p class="text-xl mb-6">Choose the animal that best represents your house's spirit and values!</p>
+    <div class="flex justify-center space-x-4">
+      <button onclick="toggleLearnMore()" class="bg-white text-gmis-navy px-6 py-2 rounded-full hover:bg-gray-100 transition">
+        Learn more about the spirit animals
+      </button>
+    </div>
+  </div>
+</header>
+
+<section id="learn-more-content" class="hidden bg-white shadow-md p-6 rounded-md mx-auto mt-8 max-w-4xl text-left text-gray-800">
+  <h2 class="text-xl font-bold text-gmis-navy mb-4">Learn More About the House Spirit Animals</h2>
+  <h2>Tagore House: Creativity & Innovation</h2>
+  <h3>Animal Spirits</h3>
+  <p><strong>Peacock</strong><br>
+  <em>Symbolism:</em> Creativity, beauty, self-expression<br>
+  <em>Characteristics:</em> Vibrant, distinctive, artistic freedom, confidence<br>
+  <em>Alignment:</em> Bold thinking, unique identity, diverse perspectives</p>
+
+  <p><strong>Owl</strong><br>
+  <em>Symbolism:</em> Wisdom, intelligence, insight<br>
+  <em>Characteristics:</em> Nocturnal, perceptive, academic<br>
+  <em>Alignment:</em> Curiosity, critical thinking, observation</p>
+
+  <h2>Lincoln House: Courage & Leadership</h2>
+  <h3>Animal Spirits</h3>
+  <p><strong>Elephant</strong><br>
+  <em>Symbolism:</em> Strength, memory, compassion<br>
+  <em>Characteristics:</em> Emotionally intelligent, collective wisdom<br>
+  <em>Alignment:</em> Resilience, empathy, community</p>
+
+  <p><strong>Wolf</strong><br>
+  <em>Symbolism:</em> Teamwork, strategy, loyalty<br>
+  <em>Characteristics:</em> Pack-oriented, strategic<br>
+  <em>Alignment:</em> Collaboration, group success</p>
+
+  <h2>Kartini House: Diligence & Empowerment</h2>
+  <h3>Animal Spirits</h3>
+  <p><strong>Bee</strong><br>
+  <em>Symbolism:</em> Effort, productivity, communication<br>
+  <em>Characteristics:</em> Organized, ecosystem role<br>
+  <em>Alignment:</em> Teamwork, system thinking</p>
+
+  <p><strong>Stag</strong><br>
+  <em>Symbolism:</em> Grace, growth, dignity<br>
+  <em>Characteristics:</em> Majestic, peaceful<br>
+  <em>Alignment:</em> Self-improvement, elegant progress</p>
+
+  <h2>Tolstoy House: Integrity & Wisdom</h2>
+  <h3>Animal Spirits</h3>
+  <p><strong>Lion</strong><br>
+  <em>Symbolism:</em> Courage, strength, leadership<br>
+  <em>Characteristics:</em> Protective, fearless<br>
+  <em>Alignment:</em> Moral values, justice</p>
+
+  <p><strong>Dove</strong><br>
+  <em>Symbolism:</em> Peace, diplomacy, harmony<br>
+  <em>Characteristics:</em> Gentle, wise<br>
+  <em>Alignment:</em> Understanding, inner strength</p>
+  </section>
+</header>
+
+<div class="h-4"></div>
+
+<!-- Voting Section -->
+<main class="container mx-auto px-4 py-12">
+  <div id="voting-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Tagore House -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+      <div class="bg-blue-100 p-4 text-center">
+        <h2 class="text-xl font-semibold text-blue-700">Tagore House</h2>
+        <p class="text-sm text-blue-600">Wisdom</p>
+      </div>
+      <div class="p-6 grid grid-cols-2 gap-4">
+        <div class="text-center">
+          <img src="assets/images/tagore-peacock.png" alt="Peacock" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Tagore', 'peacock')">
+          <p class="mt-2">Peacock</p>
+          <span id="count-tagore-peacock" class="font-bold text-blue-700">0</span>
+        </div>
+        <div class="text-center">
+          <img src="assets/images/tagore-owl.png" alt="Owl" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Tagore', 'owl')">
+          <p class="mt-2">Owl</p>
+          <span id="count-tagore-owl" class="font-bold text-blue-700">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lincoln House -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+      <div class="bg-green-100 p-4 text-center">
+        <h2 class="text-xl font-semibold text-green-700">Lincoln House</h2>
+        <p class="text-sm text-green-600">Courage</p>
+      </div>
+      <div class="p-6 grid grid-cols-2 gap-4">
+        <div class="text-center">
+          <img src="assets/images/lincoln-elephant.png" alt="Elephant" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Lincoln', 'elephant')">
+          <p class="mt-2">Elephant</p>
+          <span id="count-lincoln-elephant" class="font-bold text-green-700">0</span>
+        </div>
+        <div class="text-center">
+          <img src="assets/images/lincoln-wolf.png" alt="Wolf" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Lincoln', 'wolf')">
+          <p class="mt-2">Wolf</p>
+          <span id="count-lincoln-wolf" class="font-bold text-green-700">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kartini House -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+      <div class="bg-yellow-100 p-4 text-center">
+        <h2 class="text-xl font-semibold text-yellow-700">Kartini House</h2>
+        <p class="text-sm text-yellow-600">Empowerment</p>
+      </div>
+      <div class="p-6 grid grid-cols-2 gap-4">
+        <div class="text-center">
+          <img src="assets/images/kartini-bee.png" alt="Bee" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Kartini', 'bee')">
+          <p class="mt-2">Bee</p>
+          <span id="count-kartini-bee" class="font-bold text-yellow-700">0</span>
+        </div>
+        <div class="text-center">
+          <img src="assets/images/kartini-stag.png" alt="Stag" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Kartini', 'stag')">
+          <p class="mt-2">Stag</p>
+          <span id="count-kartini-stag" class="font-bold text-yellow-700">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tolstoy House -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+      <div class="bg-red-100 p-4 text-center">
+        <h2 class="text-xl font-semibold text-red-700">Tolstoy House</h2>
+        <p class="text-sm text-red-600">Integrity</p>
+      </div>
+      <div class="p-6 grid grid-cols-2 gap-4">
+        <div class="text-center">
+          <img src="assets/images/tolstoy-lion.png" alt="Lion" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Tolstoy', 'lion')">
+          <p class="mt-2">Lion</p>
+          <span id="count-tolstoy-lion" class="font-bold text-red-700">0</span>
+        </div>
+        <div class="text-center">
+          <img src="assets/images/tolstoy-dove.png" alt="Dove" 
+               class="mx-auto w-24 h-24 object-contain cursor-pointer hover:animate-vote-pulse" 
+               onclick="vote('Tolstoy', 'dove')">
+          <p class="mt-2">Dove</p>
+          <span id="count-tolstoy-dove" class="font-bold text-red-700">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Analytics Section -->
+  <section class="mt-12 bg-white rounded-xl shadow-lg p-8">
+    <h2 class="text-2xl font-bold mb-6 text-center">Live Voting Analytics</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <canvas id="votingChart"></canvas>
+      </div>
+      <div id="leaderboard" class="space-y-4">
+        <h3 class="text-xl font-semibold mb-4">Current Leaderboard</h3>
+        <div id="vote-summary"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gmis-navy text-white py-6 text-center">
+  <p>© 2025 GMIS School House Spirit Vote. All rights reserved.</p>
+  <div class="mt-4 space-x-4">
+    <a href="#" class="hover:text-gmis-gold">Privacy Policy</a>
+    <a href="#" class="hover:text-gmis-gold">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+  // Google Apps Script Web App URL — must be deployed as "Anyone can access" for GitHub iframe integration
+  const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+  // Vote tracking object
+  const votes = {
+    Tagore: { peacock: 0, owl: 0 },
+    Lincoln: { elephant: 0, wolf: 0 },
+    Kartini: { bee: 0, stag: 0 },
+    Tolstoy: { lion: 0, dove: 0 }
+  };
+
+  // Vote submission function
+  async function vote(house, animal) {
+    try {
+      const response = await fetch(`${SCRIPT_URL}?house=${house}&animal=${animal}`, {
+        method: 'POST'
+      });
+      const voteCounts = await response.json();
+      updateVoteUI(voteCounts);
+    } catch (error) {
+      console.error('Vote submission error:', error);
+      alert('Error submitting vote. Please try again.');
+    }
+  }
+
+  // Update UI with vote counts
+  function updateVoteUI(voteCounts) {
+    // Update individual vote count displays
+    Object.keys(voteCounts).forEach(house => {
+      Object.keys(voteCounts[house]).forEach(animal => {
+        const countElement = document.getElementById(`count-${house.toLowerCase()}-${animal}`);
+        if (countElement) {
+          countElement.textContent = voteCounts[house][animal];
+        }
+      });
+    });
+
+    // Update chart and leaderboard
+    updateAnalytics(voteCounts);
+  }
+
+  // Analytics and chart update
+  function updateAnalytics(voteCounts) {
+    const ctx = document.getElementById('votingChart').getContext('2d');
+    
+    // Prepare data for chart
+    const labels = [];
+    const data = [];
+    const colors = [];
+
+    Object.keys(voteCounts).forEach(house => {
+      Object.keys(voteCounts[house]).forEach(animal => {
+        labels.push(`${house} ${animal}`);
+        data.push(voteCounts[house][animal]);
+        
+        // Assign colors based on house
+        switch(house) {
+          case 'Tagore': colors.push('#3B82F6'); break;
+          case 'Lincoln': colors.push('#10B981'); break;
+          case 'Kartini': colors.push('#F59E0B'); break;
+          case 'Tolstoy': colors.push('#EF4444'); break;
+        }
+      });
+    });
+
+    // Destroy existing chart if it exists
+    if (window.votingChart instanceof Chart) {
+      window.votingChart.destroy();
+    }
+
+    // Create new chart
+    window.votingChart = new Chart(ctx, {
+      type: 'bar',
+</script>
+<script>
+  function toggleLearnMore() {
+    const section = document.getElementById('learn-more-content');
+    section.classList.toggle('hidden');
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>
