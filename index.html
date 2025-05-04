@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GMIS House Spirit Animal Vote</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <script>
-      // Custom Tailwind configuration
       tailwind.config = {
           theme: {
               extend: {
@@ -21,23 +19,12 @@
                           red: '#EF4444',
                           blue: '#3B82F6'
                       }
-                  },
-                  animation: {
-                      'vote-pulse': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                   }
               }
           }
       }
   </script>
   <style>
-      @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.05); }
-      }
-      .vote-highlight {
-          box-shadow: 0 0 15px rgba(233, 169, 72, 0.5);
-          transition: all 0.3s ease;
-      }
       .animal-icon {
           transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
@@ -45,49 +32,35 @@
           transform: scale(1.1);
           box-shadow: 0 0 15px rgba(0,0,0,0.2);
       }
+      .mystery-icon {
+          animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+      }
   </style>
 </head>
 <body class="bg-gmis-lightBlue text-gray-800">
-  <!-- Hero Section with Family Sports Day Background -->
+  <!-- Hero Section -->
   <header class="relative bg-cover bg-center text-white py-16 text-center" 
-          style="background-image: url('data:image/png;base64,BASE64_FAMILY_SPORTS_DAY');">
-      <div class="absolute inset-0 bg-gmis-navy opacity-70"></div>
-      <div class="relative container mx-auto px-4 z-10">
+          style="background-image: linear-gradient(rgba(14, 42, 71, 0.7), rgba(14, 42, 71, 0.7)), url('data:image/png;base64,BASE64_FAMILY_SPORTS_DAY');">
+      <div class="container mx-auto px-4 z-10">
           <h1 class="text-4xl font-bold mb-4">GMIS House Spirit Animal Vote</h1>
           <p class="text-xl mb-6">Choose the animal that best represents your house's spirit and values!</p>
-          <div class="flex justify-center space-x-4">
-              <button onclick="toggleLearnMore()" class="bg-white text-gmis-navy px-6 py-2 rounded-full hover:bg-gray-100 transition">
-                  Learn more about the spirit animals
-              </button>
-          </div>
       </div>
   </header>
 
-  <!-- Learn More Content -->
-  <section id="learn-more-content" class="hidden bg-white shadow-md p-6 rounded-md mx-auto mt-8 max-w-4xl text-left text-gray-800">
-      <h2 class="text-2xl font-bold mb-4">About Our House Spirit Animals</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-          <div>
-              <h3 class="font-semibold text-lg mb-2">Tagore House: Wisdom</h3>
-              <p>Choose between the Peacock, symbolizing beauty and knowledge, and the Owl, representing deep wisdom and insight.</p>
-          </div>
-          <div>
-              <h3 class="font-semibold text-lg mb-2">Lincoln House: Courage</h3>
-              <p>Select between the Elephant, embodying strength and memory, and the Wolf, representing leadership and teamwork.</p>
-          </div>
-          <div>
-              <h3 class="font-semibold text-lg mb-2">Kartini House: Empowerment</h3>
-              <p>Vote for the Bee, symbolizing community and hard work, or the Stag, representing grace and determination.</p>
-          </div>
-          <div>
-              <h3 class="font-semibold text-lg mb-2">Tolstoy House: Integrity</h3>
-              <p>Choose between the Lion, representing courage and nobility, and the Dove, symbolizing peace and harmony.</p>
-          </div>
-      </div>
-  </section>
-
   <!-- Voting Section -->
   <main class="container mx-auto px-4 py-12">
+      <!-- Trust-Based Voting Note -->
+      <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
+          <p class="text-yellow-700">
+              <strong>Important Note:</strong> This is a trust-based voting system. We kindly ask each Pupils, Parents, and Staff to vote only once and maintain the integrity of the process. 
+              Your honesty reflects the true spirit of our school community.
+          </p>
+      </div>
+
       <div id="voting-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Tagore House -->
           <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
@@ -98,15 +71,15 @@
               <div class="p-6 grid grid-cols-2 gap-4">
                   <div class="text-center">
                       <img src="data:image/png;base64,BASE64_TAGORE_PEACOCK" alt="Peacock" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Tagore', 'peacock')">
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Tagore', 'Peacock')">
                       <p class="mt-2">Peacock</p>
                   </div>
                   <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_TAGORE_TIGER" alt="Owl" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Tagore', 'owl')">
-                      <p class="mt-2">Owl</p>
+                      <img src="data:image/png;base64,BASE64_TAGORE_TIGER" alt="Tiger" 
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Tagore', 'Tiger')">
+                      <p class="mt-2">Tiger</p>
                   </div>
               </div>
           </div>
@@ -119,16 +92,16 @@
               </div>
               <div class="p-6 grid grid-cols-2 gap-4">
                   <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_LINCOLN_ELEPHANT" alt="Elephant" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Lincoln', 'elephant')">
-                      <p class="mt-2">Elephant</p>
+                      <img src="data:image/png;base64,BASE64_LINCOLN_WOLF" alt="Wolf" 
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Lincoln', 'Wolf')">
+                      <p class="mt-2">Wolf</p>
                   </div>
                   <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_LINCOLN_WOLF" alt="Wolf" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Lincoln', 'wolf')">
-                      <p class="mt-2">Wolf</p>
+                      <img src="data:image/png;base64,BASE64_LINCOLN_ELEPHANT" alt="Elephant" 
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Lincoln', 'Elephant')">
+                      <p class="mt-2">Elephant</p>
                   </div>
               </div>
           </div>
@@ -141,16 +114,16 @@
               </div>
               <div class="p-6 grid grid-cols-2 gap-4">
                   <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_KARTINI_BEE" alt="Bee" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Kartini', 'bee')">
-                      <p class="mt-2">Bee</p>
+                      <img src="data:image/png;base64,BASE64_KARTINI_BEAR" alt="Bear" 
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Kartini', 'Bear')">
+                      <p class="mt-2">Bear</p>
                   </div>
                   <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_KARTINI_STAG" alt="Stag" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Kartini', 'stag')">
-                      <p class="mt-2">Stag</p>
+                      <img src="data:image/png;base64,BASE64_KARTINI_DEER" alt="Deer" 
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Kartini', 'Deer')">
+                      <p class="mt-2">Deer</p>
                   </div>
               </div>
           </div>
@@ -164,30 +137,33 @@
               <div class="p-6 grid grid-cols-2 gap-4">
                   <div class="text-center">
                       <img src="data:image/png;base64,BASE64_TOLSTOY_LION" alt="Lion" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Tolstoy', 'lion')">
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Tolstoy', 'Lion')">
                       <p class="mt-2">Lion</p>
                   </div>
                   <div class="text-center">
                       <img src="data:image/png;base64,BASE64_TOLSTOY_DOVE" alt="Dove" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon hover:animate-vote-pulse" 
-                           onclick="vote('Tolstoy', 'dove')">
+                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                           onclick="vote('Tolstoy', 'Dove')">
                       <p class="mt-2">Dove</p>
                   </div>
               </div>
           </div>
       </div>
 
-      <!-- Live Analytics Section -->
-      <section class="mt-12 bg-white rounded-xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold mb-6 text-center">Live Voting Analytics</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                  <canvas id="votingChart"></canvas>
+      <!-- Mystery Announcement Section -->
+      <section class="mt-12 bg-white rounded-xl shadow-lg p-8 text-center">
+          <h2 class="text-2xl font-bold mb-6">Coming Soon: Our Official House Spirit Animal!</h2>
+          <div class="flex justify-center items-center space-x-4">
+              <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mystery-icon">
+                  <span class="text-6xl font-bold text-gray-500">?</span>
               </div>
-              <div id="leaderboard" class="space-y-4">
-                  <h3 class="text-xl font-semibold mb-4">Current Leaderboard</h3>
-                  <div id="vote-summary"></div>
+              <div>
+                  <p class="text-lg text-gray-700">Stay tuned! The final house spirit animal will be revealed soon.</p>
+                  <p id="countdown" class="text-sm text-gmis-gold font-bold mt-2">
+                      Calculating time to reveal...
+                  </p>
+                  <p class="text-sm text-gray-500">Date of Announcement: May 9, 2025</p>
               </div>
           </div>
       </section>
@@ -203,74 +179,38 @@
   </footer>
 
   <script>
-      // Placeholder for Google Apps Script Web App URL
-      const SCRIPT_URL = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
-
-      // Vote tracking object
-      const votes = {
-          Tagore: { peacock: 0, owl: 0 },
-          Lincoln: { elephant: 0, wolf: 0 },
-          Kartini: { bee: 0, stag: 0 },
-          Tolstoy: { lion: 0, dove: 0 }
-      };
-
-      // Learn More Toggle
-      function toggleLearnMore() {
-          const learnMoreContent = document.getElementById('learn-more-content');
-          learnMoreContent.classList.toggle('hidden');
+      // Voting function
+      function vote(house, animal) {
+          // Simple alert to thank the user
+          alert(`Thank you for voting for ${house} House's ${animal}!`);
+          
+          // Optionally, you could disable the clicked image to prevent multiple votes
+          event.target.style.opacity = '0.5';
+          event.target.style.pointerEvents = 'none';
       }
 
-      // Vote submission function
-      async function vote(house, animal) {
-          try {
-              const response = await fetch(`${SCRIPT_URL}?house=${house}&animal=${animal}`, {
-                  method: 'POST'
-              });
-              const voteCounts = await response.json();
-              updateVoteUI(voteCounts);
-          } catch (error) {
-              console.error('Vote submission error:', error);
-              alert('Error submitting vote. Please try again.');
+      // Countdown to Reveal
+      function updateCountdown() {
+          const revealDate = new Date('2025-05-09T00:00:00');
+          const now = new Date();
+          const difference = revealDate - now;
+
+          if (difference > 0) {
+              const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+              const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+
+              document.getElementById('countdown').textContent = 
+                  `${days} days, ${hours} hours, ${minutes} minutes until the big reveal!`;
+          } else {
+              document.getElementById('countdown').textContent = 'The reveal is here!';
           }
       }
 
-      // Update UI with vote counts
-      function updateVoteUI(voteCounts) {
-          updateChart(voteCounts);
-          updateLeaderboard(voteCounts);
-      }
-
-      // Update leaderboard with vote summary
-      function updateLeaderboard(voteCounts) {
-          const leaderboardElement = document.getElementById('vote-summary');
-          const sortedVotes = Object.entries(voteCounts)
-              .flatMap(([house, animals]) => 
-                  Object.entries(animals).map(([animal, count]) => ({
-                      house, animal, count
-                  }))
-              )
-              .sort((a, b) => b.count - a.count);
-
-          leaderboardElement.innerHTML = sortedVotes.map(vote => `
-              <div class="flex justify-between items-center p-2 bg-gray-100 rounded">
-                  <span>${vote.house} ${vote.animal}</span>
-                  <span class="font-bold">${vote.count} votes</span>
-              </div>
-          `).join('');
-      }
-
-      // Chart initialization
-      function initChart() {
-          const ctx = document.getElementById('votingChart').getContext('2d');
-          window.votingChart = new Chart(ctx, {
-              type: 'bar',
-              data: {
-                  labels: ['Tagore Peacock', 'Tagore Owl', 'Lincoln Elephant', 'Lincoln Wolf', 'Kartini Bee', 'Kartini Stag', 'Tolstoy Lion', 'Tolstoy Dove'],
-                  datasets: [{
-                      label: 'Votes',
-                      data: [0, 0, 0, 0, 0, 0, 0, 0],
-                      backgroundColor: [
-                          'rgba(59, 130, 246, 0.6)', 'rgba(59, 130, 246, 0.6)',
-                          'rgba(16, 185, 129, 0.6)', 'rgba(16, 185, 129, 0.6)',
-                          'rgba(234, 179, 8, 0.6)', 'rgba(234, 179, 8, 0.6)',
-              
+      // Update countdown every minute
+      setInterval(updateCountdown, 60000);
+      // Initial call
+      updateCountdown();
+  </script>
+</body>
+</html>
