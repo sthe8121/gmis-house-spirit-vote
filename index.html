@@ -1,216 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GMIS House Spirit Animal Vote</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <script>
-      tailwind.config = {
-          theme: {
-              extend: {
-                  colors: {
-                      gmis: {
-                          navy: '#0E2A47',
-                          gold: '#E1A948',
-                          lightBlue: '#D4E9F7',
-                          green: '#10B981',
-                          red: '#EF4444',
-                          blue: '#3B82F6'
-                      }
-                  }
-              }
-          }
-      }
-  </script>
-  <style>
-      .animal-icon {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .animal-icon:hover {
-          transform: scale(1.1);
-          box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      }
-      .mystery-icon {
-          animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.1); }
-      }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GMIS House Spirit Animal Vote</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    gmis: {
+                        navy: '#0E2A47',
+                        gold: '#E1A948',
+                        lightBlue: '#D4E9F7',
+                        green: '#10B981',
+                        red: '#EF4444',
+                        blue: '#3B82F6'
+                    }
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .animal-icon {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .animal-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .mystery-icon {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+</style>
 </head>
 <body class="bg-gmis-lightBlue text-gray-800">
-  <!-- Hero Section -->
-  <header class="relative bg-cover bg-center text-white py-16 text-center" 
-          style="background-image: linear-gradient(rgba(14, 42, 71, 0.7), rgba(14, 42, 71, 0.7)), url('data:image/png;base64,BASE64_FAMILY_SPORTS_DAY');">
-      <div class="container mx-auto px-4 z-10">
-          <h1 class="text-4xl font-bold mb-4">GMIS House Spirit Animal Vote</h1>
-          <p class="text-xl mb-6">Choose the animal that best represents your house's spirit and values!</p>
-      </div>
-  </header>
+<!-- Hero Section -->
+<header class="relative bg-cover bg-center text-white py-16 text-center" 
+        style="background-image: linear-gradient(rgba(14, 42, 71, 0.7), rgba(14, 42, 71, 0.7)), url('banner.png');">
+    <div class="container mx-auto px-4 z-10">
+        <h1 class="text-4xl font-bold mb-4">GMIS House Spirit Animal Vote</h1>
+        <p class="text-xl mb-6">Choose the animal that best represents your house's spirit and values!</p>
+    </div>
+</header>
 
-  <!-- Voting Section -->
-  <main class="container mx-auto px-4 py-12">
-      <!-- Trust-Based Voting Note -->
-      <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
-          <p class="text-yellow-700">
-              <strong>Important Note:</strong> This is a trust-based voting system. We kindly ask each Pupils, Parents, and Staff to vote only once and maintain the integrity of the process. 
-              Your honesty reflects the true spirit of our school community.
-          </p>
-      </div>
+<!-- Voting Section -->
+<main class="container mx-auto px-4 py-12">
+    <!-- Trust-Based Voting Note -->
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
+        <p class="text-yellow-700">
+            <strong>Important Note:</strong> This is a trust-based voting system. We kindly ask each Pupils, Parents, and Staff to vote only once and maintain the integrity of the process. 
+            Your honesty reflects the true spirit of our school community.
+        </p>
+    </div>
 
-      <div id="voting-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- Tagore House -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
-              <div class="bg-blue-100 p-4 text-center">
-                  <h2 class="text-xl font-semibold text-blue-700">Tagore House</h2>
-                  <p class="text-sm text-blue-600">Wisdom</p>
-              </div>
-              <div class="p-6 grid grid-cols-2 gap-4">
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_TAGORE_PEACOCK" alt="Peacock" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Tagore', 'Peacock')">
-                      <p class="mt-2">Peacock</p>
-                  </div>
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_TAGORE_TIGER" alt="Tiger" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Tagore', 'Tiger')">
-                      <p class="mt-2">Tiger</p>
-                  </div>
-              </div>
-          </div>
+    <div id="voting-section" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Tagore House -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+            <div class="bg-blue-100 p-4 text-center">
+                <h2 class="text-xl font-semibold text-blue-700">Tagore House</h2>
+                <p class="text-sm text-blue-600">Wisdom</p>
+            </div>
+            <div class="p-6 grid grid-cols-2 gap-4">
+                <div class="text-center">
+                    <img src="peacock.png" alt="Peacock" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Tagore', 'Peacock')">
+                    <p class="mt-2">Peacock</p>
+                </div>
+                <div class="text-center">
+                    <img src="tiger.png" alt="Tiger" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Tagore', 'Tiger')">
+                    <p class="mt-2">Tiger</p>
+                </div>
+            </div>
+        </div>
 
-          <!-- Lincoln House -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
-              <div class="bg-green-100 p-4 text-center">
-                  <h2 class="text-xl font-semibold text-green-700">Lincoln House</h2>
-                  <p class="text-sm text-green-600">Courage</p>
-              </div>
-              <div class="p-6 grid grid-cols-2 gap-4">
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_LINCOLN_WOLF" alt="Wolf" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Lincoln', 'Wolf')">
-                      <p class="mt-2">Wolf</p>
-                  </div>
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_LINCOLN_ELEPHANT" alt="Elephant" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Lincoln', 'Elephant')">
-                      <p class="mt-2">Elephant</p>
-                  </div>
-              </div>
-          </div>
+        <!-- Lincoln House -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+            <div class="bg-green-100 p-4 text-center">
+                <h2 class="text-xl font-semibold text-green-700">Lincoln House</h2>
+                <p class="text-sm text-green-600">Courage</p>
+            </div>
+            <div class="p-6 grid grid-cols-2 gap-4">
+                <div class="text-center">
+                    <img src="wolf.png" alt="Wolf" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Lincoln', 'Wolf')">
+                    <p class="mt-2">Wolf</p>
+                </div>
+                <div class="text-center">
+                    <img src="elephant.png" alt="Elephant" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Lincoln', 'Elephant')">
+                    <p class="mt-2">Elephant</p>
+                </div>
+            </div>
+        </div>
 
-          <!-- Kartini House -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
-              <div class="bg-yellow-100 p-4 text-center">
-                  <h2 class="text-xl font-semibold text-yellow-700">Kartini House</h2>
-                  <p class="text-sm text-yellow-600">Empowerment</p>
-              </div>
-              <div class="p-6 grid grid-cols-2 gap-4">
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_KARTINI_BEAR" alt="Bear" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Kartini', 'Bear')">
-                      <p class="mt-2">Bear</p>
-                  </div>
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_KARTINI_DEER" alt="Deer" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Kartini', 'Deer')">
-                      <p class="mt-2">Deer</p>
-                  </div>
-              </div>
-          </div>
+        <!-- Kartini House -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+            <div class="bg-yellow-100 p-4 text-center">
+                <h2 class="text-xl font-semibold text-yellow-700">Kartini House</h2>
+                <p class="text-sm text-yellow-600">Empowerment</p>
+            </div>
+            <div class="p-6 grid grid-cols-2 gap-4">
+                <div class="text-center">
+                    <img src="bear.png" alt="Bear" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Kartini', 'Bear')">
+                    <p class="mt-2">Bear</p>
+                </div>
+                <div class="text-center">
+                    <img src="deer.png" alt="Deer" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Kartini', 'Deer')">
+                    <p class="mt-2">Deer</p>
+                </div>
+            </div>
+        </div>
 
-          <!-- Tolstoy House -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
-              <div class="bg-red-100 p-4 text-center">
-                  <h2 class="text-xl font-semibold text-red-700">Tolstoy House</h2>
-                  <p class="text-sm text-red-600">Integrity</p>
-              </div>
-              <div class="p-6 grid grid-cols-2 gap-4">
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_TOLSTOY_LION" alt="Lion" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Tolstoy', 'Lion')">
-                      <p class="mt-2">Lion</p>
-                  </div>
-                  <div class="text-center">
-                      <img src="data:image/png;base64,BASE64_TOLSTOY_DOVE" alt="Dove" 
-                           class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
-                           onclick="vote('Tolstoy', 'Dove')">
-                      <p class="mt-2">Dove</p>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <!-- Tolstoy House -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105 hover:shadow-2xl">
+            <div class="bg-red-100 p-4 text-center">
+                <h2 class="text-xl font-semibold text-red-700">Tolstoy House</h2>
+                <p class="text-sm text-red-600">Integrity</p>
+            </div>
+            <div class="p-6 grid grid-cols-2 gap-4">
+                <div class="text-center">
+                    <img src="lion.png" alt="Lion" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Tolstoy', 'Lion')">
+                    <p class="mt-2">Lion</p>
+                </div>
+                <div class="text-center">
+                    <img src="dove.png" alt="Dove" 
+                         class="mx-auto w-24 h-24 object-contain cursor-pointer animal-icon" 
+                         onclick="vote('Tolstoy', 'Dove')">
+                    <p class="mt-2">Dove</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-      <!-- Mystery Announcement Section -->
-      <section class="mt-12 bg-white rounded-xl shadow-lg p-8 text-center">
-          <h2 class="text-2xl font-bold mb-6">Coming Soon: Our Official House Spirit Animal!</h2>
-          <div class="flex justify-center items-center space-x-4">
-              <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mystery-icon">
-                  <span class="text-6xl font-bold text-gray-500">?</span>
-              </div>
-              <div>
-                  <p class="text-lg text-gray-700">Stay tuned! The final house spirit animal will be revealed soon.</p>
-                  <p id="countdown" class="text-sm text-gmis-gold font-bold mt-2">
-                      Calculating time to reveal...
-                  </p>
-                  <p class="text-sm text-gray-500">Date of Announcement: May 9, 2025</p>
-              </div>
-          </div>
-      </section>
-  </main>
+    <!-- Mystery Announcement Section -->
+    <section class="mt-12 bg-white rounded-xl shadow-lg p-8 text-center">
+        <h2 class="text-2xl font-bold mb-6">Coming Soon: Our Official House Spirit Animal!</h2>
+        <div class="flex justify-center items-center space-x-4">
+            <div class="w-32 h-32 bg-gray-200 rounded-full flex items-center justify-center mystery-icon">
+                <span class="text-6xl font-bold text-gray-500">?</span>
+            </div>
+            <div>
+                <p class="text-lg text-gray-700">Stay tuned! The final house spirit animal will be revealed soon.</p>
+                <p id="countdown" class="text-sm text-gmis-gold font-bold mt-2">
+                    Calculating time to reveal...
+                </p>
+                <p class="text-sm text-gray-500">Date of Announcement: May 9, 2025</p>
+            </div>
+        </div>
+    </section>
+</main>
 
-  <!-- Footer -->
-  <footer class="bg-gmis-navy text-white py-6 text-center">
-      <p>© 2025 GMIS School House Spirit Vote. All rights reserved.</p>
-      <div class="mt-4 space-x-4">
-          <a href="#" class="hover:text-gmis-gold">Privacy Policy</a>
-          <a href="#" class="hover:text-gmis-gold">Terms of Service</a>
-      </div>
-  </footer>
+<!-- Footer -->
+<footer class="bg-gmis-navy text-white py-6 text-center">
+    <p>© 2025 GMIS School House Spirit Vote. All rights reserved.</p>
+    <div class="mt-4 space-x-4">
+        <a href="#" class="hover:text-gmis-gold">Privacy Policy</a>
+        <a href="#" class="hover:text-gmis-gold">Terms of Service</a>
+    </div>
+</footer>
 
-  <script>
-      // Voting function
-      function vote(house, animal) {
-          // Simple alert to thank the user
-          alert(`Thank you for voting for ${house} House's ${animal}!`);
-          
-          // Optionally, you could disable the clicked image to prevent multiple votes
-          event.target.style.opacity = '0.5';
-          event.target.style.pointerEvents = 'none';
-      }
+<script>
+    // Voting function
+    function vote(house, animal) {
+        // Simple alert to thank the user
+        alert(`Thank you for voting for ${house} House's ${animal}!`);
+        
+        // Optionally, you could disable the clicked image to prevent multiple votes
+        event.target.style.opacity = '0.5';
+        event.target.style.pointerEvents = 'none';
+    }
 
-      // Countdown to Reveal
-      function updateCountdown() {
-          const revealDate = new Date('2025-05-09T00:00:00');
-          const now = new Date();
-          const difference = revealDate - now;
+    // Countdown to Reveal
+    function updateCountdown() {
+        const revealDate = new Date('2025-05-09T00:00:00');
+        const now = new Date();
+        const difference = revealDate - now;
 
-          if (difference > 0) {
-              const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-              const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-              const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
 
-              document.getElementById('countdown').textContent = 
-                  `${days} days, ${hours} hours, ${minutes} minutes until the big reveal!`;
-          } else {
-              document.getElementById('countdown').textContent = 'The reveal is here!';
-          }
-      }
+            document.getElementById('countdown').textContent = 
+                `${days} days, ${hours} hours, ${minutes} minutes until the big reveal!`;
+        } else {
+            document.getElementById('countdown').textContent = 'The reveal is here!';
+        }
+    }
 
-      // Update countdown every minute
-      setInterval(updateCountdown, 60000);
-      // Initial call
-      updateCountdown();
-  </script>
+    // Update countdown every minute
+    setInterval(updateCountdown, 60000);
+    // Initial call
+    updateCountdown();
+</script>
 </body>
 </html>
